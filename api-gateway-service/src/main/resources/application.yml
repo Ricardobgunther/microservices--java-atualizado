@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+       
+        - id: cambio-service
+          uri: lb://cambio-service
+          predicates:
+            - Path=/cambio/** 
+          filters:
+            - AddRequestHeader=Usuario, Ricardo Basso Gunther
+
+     
+        - id: produto-service
+          uri: lb://produto-service
+          predicates:
+            - Path=/produto/** 
+          filters:
+            - AddRequestHeader=Usuario, Ricardo Basso Gunther
+
+        - id: saudacao-service
+          uri: lb://saudacao-service
+          predicates:
+            - Path=/saudacao/** 
+          filters:
+            - AddRequestHeader=Usuario, Ricardo Basso Gunther
